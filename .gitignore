@@ -1,0 +1,68 @@
+# ------------------------------------------------------
+# IGNORE SEMUA DATASET
+# ------------------------------------------------------
+
+# Folder data berisi dataset (tetap ignore semuanya)
+data/*
+!data/.gitkeep
+
+# Semua jenis dataset umum
+*.csv
+*.arff
+*.xlsx
+*.xls
+*.json
+*.txt
+*.tsv
+*.zip
+*.gz
+*.rar
+
+# Dataset image (jaga-jaga)
+*.jpg
+*.jpeg
+*.png
+*.bmp
+
+# Dataset audio (kalau nanti tugas lain)
+*.wav
+*.mp3
+*.ogg
+
+# Hasil download otomatis oleh script
+datasets/
+downloads/
+raw_data/
+processed_data/
+
+# ------------------------------------------------------
+# PYTHON & NOTEBOOK STUFF
+# ------------------------------------------------------
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ------------------------------------------------------
+# VIRTUAL ENVIRONMENT
+# ------------------------------------------------------
+venv/
+.env/
+*.env
+
+# ------------------------------------------------------
+# MODEL FILES
+# (kalau mau commit model, hapus baris ini)
+# ------------------------------------------------------
+# models/*
+# !models/.gitkeep
+
+# ------------------------------------------------------
+# MISC
+# ------------------------------------------------------
+.DS_Store
+
+riceenv/
+*.dll
+*.so
+*.pyd
+
