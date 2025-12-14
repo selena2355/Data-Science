@@ -18,12 +18,6 @@ data/*
 *.gz
 *.rar
 
-# Dataset image (jaga-jaga)
-*.jpg
-*.jpeg
-*.png
-*.bmp
-
 # Dataset audio (kalau nanti tugas lain)
 *.wav
 *.mp3
