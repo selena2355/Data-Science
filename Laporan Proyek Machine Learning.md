@@ -9,7 +9,9 @@ Perbandingan Model Machine Learning dan Deep Learning dalam Klasifikasi Varietas
 **Mata Kuliah:** Data Science  
 **Dosen Pengampu:** Gus Nanang Syaifuddiin, S.Kom., M.Kom.  
 **Tahun Akademik:** 2025 / 5
+
 **Link GitHub Repository:** (https://github.com/selena2355/Data-Science.git)
+
 **Link Video Pembahasan:** [URL Repository]
 
 ---
@@ -46,6 +48,7 @@ Dengan mengaplikasikan dan membandingkan beberapa model Machine Learning dan Dee
 
 **Referensi Ilmiah:**
 > Ratnavel R., Sahil F., Sivasankaran S., Geetha R. (2024). *RiceSeedNet: Rice seed variety identification using deep neural network*. *Journal of Agriculture and Food Research*, 16, 101062.
+
 > Pranshu S., Kanu P., Sachin G., Puneet Kumar A., Amit S., Parita J. (2022).*Rice Varieties Classification Using Machine Learning Algorithms*. Journal of Pharmaceutical Negative Results, Special Issue, 3762–3772.
 
 ## 3. BUSINESS UNDERSTANDING / PROBLEM UNDERSTANDING
@@ -197,6 +200,7 @@ Dimensionality reduction seperti PCA tidak diterapkan karena jumlah fitur relati
 Proses data transformation dilakukan untuk memastikan data berada dalam format yang sesuai dan optimal bagi proses pemodelan machine learning dan deep learning.
 
 **Encoding**
+
 Target label pada dataset dikodekan menggunakan Label Encoding. Setiap kelas varietas beras direpresentasikan sebagai nilai numerik agar dapat diproses oleh algoritma klasifikasi.
 ```
 Encoding yang digunakan:
@@ -210,6 +214,7 @@ Alasan Pemilihan:
 - One-Hot Encoding tidak diperlukan karena hanya terdapat 2 kelas
 
 **Scaling**
+
 Seluruh fitur numerik dilakukan standardisasi menggunakan StandardScaler, dengan rumus:
 ```
 z = x − μ​ / σ
@@ -308,8 +313,10 @@ Sebagai gantinya, evaluasi model dilakukan menggunakan beberapa metrik klasifika
 #### 6.1.1 Deskripsi Model
 
 **Nama Model:** Logistic Regression
+
 **Teori Singkat:**  
 Logistic Regression adalah algoritma klasifikasi yang memodelkan hubungan antara fitur input dan probabilitas kelas target menggunakan fungsi logistik (sigmoid). Model ini menghasilkan probabilitas keluaran antara 0 dan 1, kemudian menentukan kelas berdasarkan threshold tertentu.
+
 **Alasan Pemilihan:**  
 Logistic Regression dipilih sebagai baseline karena:
 - Sederhana dan mudah diinterpretasikan
@@ -343,6 +350,7 @@ Detail evaluasi akan dibahas pada **Section 7 (Evaluation)**.
 #### 6.2.1 Deskripsi Model
 
 **Nama Model:** Random Forest Classifier
+
 **Teori Singkat:**  
 Random Forest merupakan metode ensemble berbasis decision tree yang membangun banyak pohon keputusan secara acak, kemudian menggabungkan hasil prediksinya melalui mekanisme voting. Pendekatan ini mengurangi overfitting dan meningkatkan generalisasi model.
 
@@ -371,7 +379,8 @@ Random Forest dipilih karena:
 - random_state: 42
 ```
 
-**Hyperparameter Tuning (jika dilakukan):**
+**Hyperparameter Tuning:**
+
 Tidak dilakukan hyperparameter tuning lanjutan untuk menjaga fokus pada perbandingan model.
 
 #### 6.2.3 Implementasi (Ringkas)
@@ -400,7 +409,8 @@ Detail evaluasi akan dibahas pada **Section 7 (Evaluation)**.
 
 **Nama Model:** Multilayer Perceptron (MLP)
 
-**Jenis Deep Learning: **
+**Jenis Deep Learning:**
+
 ✅ Multilayer Perceptron (MLP) - untuk tabular
 - [ ] Convolutional Neural Network (CNN) - untuk image
 - [ ] Recurrent Neural Network (LSTM/GRU) - untuk sequential/text
@@ -485,10 +495,10 @@ history = model_mlp.fit(
 
 **Training History Visualization:**
 1. **Training & Validation Loss** per epoch
-<Figure size 600x400 with 1 Axes>
+![Training & Validation Loss](images/history_loss.png)
 
 2. **Training & Validation Accuracy/Metric** per epoch
-<Figure size 600x400 with 1 Axes>
+![Training & Validation Accuracy/Metric](images/history_accuracy.png)
 
 **Analisis Training:**
 - Overfitting: Tidak signifikan (gap antara training dan validation relatif stabil)  
@@ -526,47 +536,27 @@ history = model_mlp.fit(
 
 ### 7.1 Metrik Evaluasi
 
-**Pilih metrik yang sesuai dengan jenis tugas:**
+Proyek ini merupakan tugas **klasifikasi biner**, sehingga metrik evaluasi yang digunakan disesuaikan dengan karakteristik permasalahan klasifikasi.
 
-#### **Untuk Klasifikasi:**
-- **Accuracy**: Proporsi prediksi yang benar
-- **Precision**: TP / (TP + FP)
-- **Recall**: TP / (TP + FN)
-- **F1-Score**: Harmonic mean dari precision dan recall
-- **ROC-AUC**: Area under ROC curve
-- **Confusion Matrix**: Visualisasi prediksi
+Metrik evaluasi yang digunakan adalah sebagai berikut:
 
-#### **Untuk Regresi:**
-- **MSE (Mean Squared Error)**: Rata-rata kuadrat error
-- **RMSE (Root Mean Squared Error)**: Akar dari MSE
-- **MAE (Mean Absolute Error)**: Rata-rata absolute error
-- **R² Score**: Koefisien determinasi
-- **MAPE (Mean Absolute Percentage Error)**: Error dalam persentase
+- **Accuracy**  
+  Mengukur proporsi prediksi yang benar terhadap seluruh data uji. Metrik ini digunakan untuk memberikan gambaran umum performa model.
 
-#### **Untuk NLP (Text Classification):**
-- **Accuracy**
-- **F1-Score** (terutama untuk imbalanced data)
-- **Precision & Recall**
-- **Perplexity** (untuk language models)
+- **Precision**  
+  Mengukur ketepatan prediksi positif, yaitu seberapa banyak prediksi kelas positif yang benar dibandingkan seluruh prediksi positif. Precision penting untuk memastikan model tidak terlalu banyak menghasilkan false positive.
 
-#### **Untuk Computer Vision:**
-- **Accuracy**
-- **IoU (Intersection over Union)** - untuk object detection/segmentation
-- **Dice Coefficient** - untuk segmentation
-- **mAP (mean Average Precision)** - untuk object detection
+- **Recall**  
+  Mengukur kemampuan model dalam mendeteksi seluruh data positif yang sebenarnya. Recall digunakan untuk melihat seberapa baik model mengenali sampel dari kelas minoritas.
 
-#### **Untuk Clustering:**
-- **Silhouette Score**
-- **Davies-Bouldin Index**
-- **Calinski-Harabasz Index**
+- **F1-Score**  
+  Merupakan harmonic mean dari precision dan recall. Metrik ini digunakan sebagai ukuran keseimbangan performa model, terutama ketika distribusi kelas tidak sepenuhnya seimbang.
 
-#### **Untuk Recommender System:**
-- **RMSE**
-- **Precision@K**
-- **Recall@K**
-- **NDCG (Normalized Discounted Cumulative Gain)**
+- **Confusion Matrix**  
+  Digunakan untuk memvisualisasikan jumlah prediksi benar dan salah pada setiap kelas, sehingga memudahkan analisis kesalahan model secara lebih detail.
 
-**[Pilih dan jelaskan metrik yang Anda gunakan]**
+Kombinasi metrik tersebut dipilih agar evaluasi performa model tidak hanya bergantung pada satu ukuran, tetapi memberikan gambaran yang lebih komprehensif terhadap kualitas prediksi.
+
 
 ### 7.2 Hasil Evaluasi Model
 
@@ -574,82 +564,85 @@ history = model_mlp.fit(
 
 **Metrik:**
 ```
-[Tuliskan hasil metrik, contoh:]
-- Accuracy: 0.75
-- Precision: 0.73
-- Recall: 0.76
-- F1-Score: 0.74
+- Accuracy: 0.92
+- Precision (weighted): 0.92
+- Recall (weighted): 0.92
+- F1-Score (weighted): 0.92
 ```
 
 **Confusion Matrix / Visualization:**  
-[Insert gambar jika ada]
+![Confusion MAtrix](images/confusion_matrix_model1.png)
 
 #### 7.2.2 Model 2 (Advanced/ML)
 
 **Metrik:**
 ```
-- Accuracy: 0.85
-- Precision: 0.84
-- Recall: 0.86
-- F1-Score: 0.85
+- Accuracy: 0.92
+- Precision (weighted): 0.92
+- Recall (weighted): 0.92
+- F1-Score (weighted): 0.92
 ```
 
 **Confusion Matrix / Visualization:**  
-[Insert gambar jika ada]
+![Confusion Matrix](images/confusion_matrix_model2.png)
 
 **Feature Importance (jika applicable):**  
-[Insert plot feature importance untuk tree-based models]
+![Feature Importance](images/feature_importance.png)
 
 #### 7.2.3 Model 3 (Deep Learning)
 
 **Metrik:**
 ```
-- Accuracy: 0.89
-- Precision: 0.88
-- Recall: 0.90
-- F1-Score: 0.89
+- Accuracy: 0.91
+- Precision (weighted): 0.91
+- Recall (weighted): 0.91
+- F1-Score (weighted): 0.91
 ```
 
 **Confusion Matrix / Visualization:**  
-[Insert gambar jika ada]
+![Confusion Matrix](images/confusion_matrix_model3.png)
 
 **Training History:**  
 [Sudah diinsert di Section 6.3.6]
 
 **Test Set Predictions:**  
-[Opsional: tampilkan beberapa contoh prediksi]
+-
 
 ### 7.3 Perbandingan Ketiga Model
 
 **Tabel Perbandingan:**
 
-| Model | Accuracy | Precision | Recall | F1-Score | Training Time | Inference Time |
+| Model | Accuracy | Precision | Recall | F1-Score | Training Time (s) | Inference Time (s) |
 |-------|----------|-----------|--------|----------|---------------|----------------|
-| Baseline (Model 1) | 0.75 | 0.73 | 0.76 | 0.74 | 2s | 0.01s |
-| Advanced (Model 2) | 0.85 | 0.84 | 0.86 | 0.85 | 30s | 0.05s |
-| Deep Learning (Model 3) | 0.89 | 0.88 | 0.90 | 0.89 | 15min | 0.1s |
+| Logistic Regression | 0.916 | 0.916 | 0.916 | 0.916 | 0.2 | 0.002 |
+| Random Forest | 0.919 | 0.919 | 	0.919 | 0.918 | 1.6 | 0.03 |
+| MLP | 0.915 | 0.915 | 0.915 | 0.914 | 14.1 | 0.2 |
 
 **Visualisasi Perbandingan:**  
-[Insert bar chart atau plot perbandingan metrik]
+Perbandingan Accuracy, Precision, Recall, dan F1-score
+![Accuracy](images/visualisasi_accuracy_dll.png)
+
+Perbandingan Training Time dan Inference Time
+![Time](images/visualisasi_waktu.png)
 
 ### 7.4 Analisis Hasil
 
 **Interpretasi:**
 
 1. **Model Terbaik:**  
-   [Sebutkan model mana yang terbaik dan mengapa]
+   Berdasarkan hasil evaluasi pada data uji, Random Forest (Model 2) menunjukkan performa terbaik dibandingkan Logistic Regression dan MLP. Model ini menghasilkan nilai accuracy, precision, recall, dan F1-score tertinggi, serta jumlah kesalahan klasifikasi yang lebih rendah berdasarkan confusion matrix. Hal ini menunjukkan bahwa Random Forest mampu menangkap pola non-linear pada data tabular dengan lebih efektif.
 
 2. **Perbandingan dengan Baseline:**  
-   [Jelaskan peningkatan performa dari baseline ke model lainnya]
+   Dibandingkan dengan model baseline (Logistic Regression), Random Forest memberikan peningkatan performa meskipun tidak terlalu besar secara numerik. Namun, peningkatan tersebut konsisten pada seluruh metrik evaluasi. Logistic Regression tetap menunjukkan performa yang kuat sebagai model sederhana, sedangkan MLP tidak memberikan peningkatan yang signifikan dibandingkan baseline.
 
 3. **Trade-off:**  
-   [Jelaskan trade-off antara performa vs kompleksitas vs waktu training]
+   Terdapat trade-off yang jelas antara performa dan kompleksitas model. Logistic Regression memiliki waktu training dan inference yang sangat cepat dengan performa yang cukup tinggi. Random Forest membutuhkan waktu komputasi lebih besar, tetapi memberikan performa terbaik secara keseluruhan. Sementara itu, MLP memiliki waktu training dan inference paling lama, namun tidak memberikan peningkatan performa yang signifikan, sehingga kurang efisien untuk dataset ini.
 
 4. **Error Analysis:**  
-   [Jelaskan jenis kesalahan yang sering terjadi, kasus yang sulit diprediksi]
+   Kesalahan prediksi pada ketiga model umumnya terjadi pada data dengan karakteristik fitur yang saling tumpang tindih antar kelas. Random Forest mampu mengurangi jumlah false negative dibandingkan model lain, sementara Logistic Regression dan MLP masih mengalami kesalahan pada beberapa sampel yang memiliki nilai fitur mendekati batas keputusan (decision boundary).
 
 5. **Overfitting/Underfitting:**  
-   [Analisis apakah model mengalami overfitting atau underfitting]
+   Tidak ditemukan indikasi overfitting yang signifikan pada model MLP, karena perbedaan antara loss dan accuracy pada data training dan validation relatif stabil. Model juga menunjukkan konvergensi yang baik selama proses training. Logistic Regression dan Random Forest juga tidak menunjukkan gejala underfitting yang berarti, mengingat performa yang konsisten pada data uji.
 
 ---
 
@@ -658,61 +651,64 @@ history = model_mlp.fit(
 ### 8.1 Kesimpulan Utama
 
 **Model Terbaik:**  
-[Sebutkan model terbaik berdasarkan evaluasi]
+Random Forest (Model 2)
 
 **Alasan:**  
-[Jelaskan mengapa model tersebut lebih unggul]
+Random Forest memberikan performa terbaik berdasarkan metrik evaluasi utama (accuracy, precision, recall, dan F1-score) serta menghasilkan jumlah kesalahan klasifikasi paling rendah. Model ini mampu memberikan keseimbangan yang baik antara performa dan kompleksitas dibandingkan Logistic Regression dan MLP.
 
 **Pencapaian Goals:**  
-[Apakah goals di Section 3.2 tercapai? Jelaskan]
+Seluruh tujuan penelitian yang dirumuskan pada Section 3.2 telah tercapai. Proyek ini berhasil membangun dan membandingkan tiga pendekatan model (baseline, advanced, dan deep learning), serta menentukan model terbaik berdasarkan evaluasi yang terukur dan reproducible.
 
 ### 8.2 Key Insights
 
 **Insight dari Data:**
-- [Insight 1]
-- [Insight 2]
-- [Insight 3]
+- Dataset bersifat tabular dengan distribusi kelas yang relatif seimbang, sehingga tidak memerlukan teknik data balancing tambahan.
+- Beberapa fitur memiliki korelasi yang cukup kuat, yang berkontribusi terhadap performa model berbasis ensemble.
+- Tidak ditemukan permasalahan data yang signifikan seperti missing values atau duplikasi data.
 
 **Insight dari Modeling:**
-- [Insight 1]
-- [Insight 2]
+- Model machine learning tradisional seperti Random Forest dapat mengungguli deep learning pada data tabular dengan ukuran kecil hingga menengah.
+- Deep learning (MLP) tidak selalu memberikan peningkatan performa yang signifikan, terutama jika kompleksitas data tidak terlalu tinggi.
 
 ### 8.3 Kontribusi Proyek
 
 **Manfaat praktis:**  
-[Jelaskan bagaimana proyek ini dapat digunakan di dunia nyata]
+Proyek ini dapat digunakan sebagai sistem klasifikasi otomatis untuk mengidentifikasi varietas beras berdasarkan karakteristik fisik biji beras. Sistem semacam ini bermanfaat dalam proses kontrol kualitas di bidang pertanian dan industri pangan, khususnya untuk membantu petani, distributor, maupun industri pengolahan beras dalam melakukan klasifikasi varietas secara cepat, konsisten, dan objektif tanpa bergantung sepenuhnya pada pengamatan manual.
 
 **Pembelajaran yang didapat:**  
-[Jelaskan apa yang Anda pelajari dari proyek ini]
+Melalui proyek ini, diperoleh pemahaman menyeluruh mengenai alur kerja data science, mulai dari data understanding, data preparation, exploratory data analysis, hingga modeling dan evaluasi. Selain itu, proyek ini memberikan pembelajaran penting bahwa pemilihan model harus disesuaikan dengan karakteristik data, di mana model machine learning tradisional dapat mengungguli deep learning pada data tabular. Proyek ini juga melatih kemampuan dalam mengevaluasi performa model secara objektif serta menyusun laporan penelitian yang terstruktur dan reproducible.
 
 ---
 
 ## 9. FUTURE WORK (Opsional)
 
 Saran pengembangan untuk proyek selanjutnya:
-** Centang Sesuai dengan saran anda **
 
 **Data:**
 - [ ] Mengumpulkan lebih banyak data
 - [ ] Menambah variasi data
-- [ ] Feature engineering lebih lanjut
+✅ Feature engineering lebih lanjut
+Penambahan feature engineering, seperti rasio antar fitur geometris atau seleksi fitur berbasis importance, berpotensi meningkatkan performa model tanpa menambah kompleksitas data secara signifikan.
 
 **Model:**
 - [ ] Mencoba arsitektur DL yang lebih kompleks
-- [ ] Hyperparameter tuning lebih ekstensif
-- [ ] Ensemble methods (combining models)
+✅ Hyperparameter tuning lebih ekstensif
+✅ Ensemble methods (combining models)
 - [ ] Transfer learning dengan model yang lebih besar
+Hasil eksperimen menunjukkan bahwa Random Forest memberikan performa terbaik, sehingga eksplorasi hyperparameter tuning dan ensemble methods (misalnya voting classifier) berpotensi meningkatkan akurasi lebih lanjut dibandingkan penggunaan satu model tunggal.
 
 **Deployment:**
-- [ ] Membuat API (Flask/FastAPI)
-- [ ] Membuat web application (Streamlit/Gradio)
+✅ Membuat API (Flask/FastAPI)
+✅ Membuat web application (Streamlit/Gradio)
 - [ ] Containerization dengan Docker
 - [ ] Deploy ke cloud (Heroku, GCP, AWS)
+Model yang telah dilatih dapat dikembangkan menjadi layanan API atau aplikasi web sederhana agar dapat digunakan secara langsung oleh pengguna non-teknis.
 
 **Optimization:**
 - [ ] Model compression (pruning, quantization)
-- [ ] Improving inference speed
-- [ ] Reducing model size
+✅ Improving inference speed
+✅ Reducing model size
+Optimasi inference dan ukuran model penting untuk meningkatkan efisiensi sistem, terutama jika model akan digunakan pada perangkat dengan keterbatasan sumber daya.
 
 ---
 
@@ -720,7 +716,7 @@ Saran pengembangan untuk proyek selanjutnya:
 
 ### 10.1 GitHub Repository
 
-**Link Repository:** [URL GitHub Anda]
+**Link Repository:** (https://github.com/selena2355/Data-Science.git)
 
 **Repository harus berisi:**
 - ✅ Notebook Jupyter/Colab dengan hasil running
@@ -732,25 +728,21 @@ Saran pengembangan untuk proyek selanjutnya:
 
 ### 10.2 Environment & Dependencies
 
-**Python Version:** [3.8 / 3.9 / 3.10 / 3.11]
+**Python Version:** 3.12.5
 
 **Main Libraries & Versions:**
 ```
-numpy==1.24.3
-pandas==2.0.3
-scikit-learn==1.3.0
-matplotlib==3.7.2
-seaborn==0.12.2
+numpy==2.3.5  
+pandas==2.3.3  
+scikit-learn==1.8.0  
+matplotlib==3.10.8  
+seaborn==0.13.2  
+joblib==1.5.2  
 
 # Deep Learning Framework (pilih salah satu)
-tensorflow==2.14.0  # atau
-torch==2.1.0        # PyTorch
+tensorflow_cpu==2.20.0 
 
-# Additional libraries (sesuaikan)
-xgboost==1.7.6
-lightgbm==4.0.0
-opencv-python==4.8.0  # untuk computer vision
-nltk==3.8.1           # untuk NLP
-transformers==4.30.0  # untuk BERT, dll
+**Additional Libraries:**
+- ucimlrepo – digunakan untuk mengunduh dataset dari UCI Machine Learning Repository secara langsung
 
 ```
