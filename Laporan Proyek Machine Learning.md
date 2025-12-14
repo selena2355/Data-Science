@@ -495,9 +495,11 @@ history = model_mlp.fit(
 
 **Training History Visualization:**
 1. **Training & Validation Loss** per epoch
+
 ![Training & Validation Loss](images/history_loss.png)
 
 2. **Training & Validation Accuracy/Metric** per epoch
+
 ![Training & Validation Accuracy/Metric](images/history_accuracy.png)
 
 **Analisis Training:**
@@ -586,7 +588,7 @@ Kombinasi metrik tersebut dipilih agar evaluasi performa model tidak hanya berga
 **Confusion Matrix / Visualization:**  
 ![Confusion Matrix](images/confusion_matrix_model2.png)
 
-**Feature Importance (jika applicable):**  
+**Feature Importance:**  
 ![Feature Importance](images/feature_importance.png)
 
 #### 7.2.3 Model 3 (Deep Learning)
@@ -687,27 +689,38 @@ Saran pengembangan untuk proyek selanjutnya:
 **Data:**
 - [ ] Mengumpulkan lebih banyak data
 - [ ] Menambah variasi data
+
 ✅ Feature engineering lebih lanjut
 Penambahan feature engineering, seperti rasio antar fitur geometris atau seleksi fitur berbasis importance, berpotensi meningkatkan performa model tanpa menambah kompleksitas data secara signifikan.
 
 **Model:**
 - [ ] Mencoba arsitektur DL yang lebih kompleks
+
 ✅ Hyperparameter tuning lebih ekstensif
+
 ✅ Ensemble methods (combining models)
+
 - [ ] Transfer learning dengan model yang lebih besar
+
 Hasil eksperimen menunjukkan bahwa Random Forest memberikan performa terbaik, sehingga eksplorasi hyperparameter tuning dan ensemble methods (misalnya voting classifier) berpotensi meningkatkan akurasi lebih lanjut dibandingkan penggunaan satu model tunggal.
 
 **Deployment:**
+
 ✅ Membuat API (Flask/FastAPI)
+
 ✅ Membuat web application (Streamlit/Gradio)
+
 - [ ] Containerization dengan Docker
 - [ ] Deploy ke cloud (Heroku, GCP, AWS)
 Model yang telah dilatih dapat dikembangkan menjadi layanan API atau aplikasi web sederhana agar dapat digunakan secara langsung oleh pengguna non-teknis.
 
 **Optimization:**
 - [ ] Model compression (pruning, quantization)
+      
 ✅ Improving inference speed
+
 ✅ Reducing model size
+
 Optimasi inference dan ukuran model penting untuk meningkatkan efisiensi sistem, terutama jika model akan digunakan pada perangkat dengan keterbatasan sumber daya.
 
 ---
