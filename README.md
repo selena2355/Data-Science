@@ -34,9 +34,9 @@ Perbandingan Model Machine Learning dan Deep Learning dalam Klasifikasi Varietas
 ```
 project/
 │
-├── data/                   # Dataset (tidak di-commit, download manual)
+├── data/                               # Dataset (tidak di-commit, download manual)
 │
-├── images/                 # Visualizations
+├── images/                             # Visualizations
 │   ├── class_distribution.png
 │   ├── confusion_matrix_model1.png
 │   ├── confusion_matrix_model2.png
@@ -49,19 +49,19 @@ project/
 │   ├── visualisasi_accuracy.png
 │   └── visualisasi_waktu.png
 │
-├── models/                 # Saved models
+├── models/                             # Saved models
 │   ├── model_baseline.pkl
 │   ├── model_mlp.h5
 │   └── model_rf.pkl
 │
-├── notebooks/              # Jupyter notebooks
+├── notebooks/                          # Jupyter notebooks
 │   └── ML_Project.ipynb
 │
-├── src/                    # Source code
+├── src/                                # Source code
 │   ├── eda_class_distribution.py
 │   ├── eda_heatmap.py
 │   ├── eda_histogram.py
-│   ├── evaluate.py
+│   ├── evaluate.py                     # disediakan sebagai modul evaluasi opsional dan tidak digunakan langsung dalam notebook eksperimen.
 │   ├── load_data.py
 │   ├── preprocess.py
 │   ├── train_advanced.py
@@ -131,18 +131,24 @@ Transformasi:
     - Menghasilkan jumlah kesalahan paling rendah
     - Memberikan keseimbangan yang baik antara performa dan kompleksitas.
 - Insight penting: 
-    - - Model machine learning tradisional seperti Random Forest dapat mengungguli deep learning pada data tabular dengan ukuran kecil hingga menengah.
+    - Model machine learning tradisional seperti Random Forest dapat mengungguli deep learning pada data tabular dengan ukuran kecil hingga menengah.
     - Deep learning (MLP) tidak selalu memberikan peningkatan performa yang signifikan, terutama jika kompleksitas data tidak terlalu tinggi.
 
 ---
 
 # 8. 🔮 Future Work
 ✅ Feature engineering lebih lanjut
+
 ✅ Hyperparameter tuning lebih ekstensif
+
 ✅ Ensemble methods (combining models)
+
 ✅ Membuat API (Flask/FastAPI)
+
 ✅ Membuat web application (Streamlit/Gradio)
+
 ✅ Improving inference speed
+
 ✅ Reducing model size
 
 ---
@@ -152,7 +158,6 @@ Transformasi:
 **Python Version:** 3.12.5
 
 **Main Libraries & Versions:**
-```
 numpy==2.3.5  
 pandas==2.3.3  
 scikit-learn==1.8.0  
@@ -164,4 +169,4 @@ joblib==1.5.2
 tensorflow_cpu==2.20.0 
 
 **Additional Libraries:**
-- ucimlrepo – digunakan untuk mengunduh dataset dari UCI Machine Learning Repository secara langsung
+ucimlrepo – digunakan untuk mengunduh dataset dari UCI Machine Learning Repository secara langsung

@@ -731,7 +731,6 @@ Optimasi inference dan ukuran model penting untuk meningkatkan efisiensi sistem,
 **Python Version:** 3.12.5
 
 **Main Libraries & Versions:**
-```
 numpy==2.3.5  
 pandas==2.3.3  
 scikit-learn==1.8.0  
@@ -739,10 +738,8 @@ matplotlib==3.10.8
 seaborn==0.13.2  
 joblib==1.5.2  
 
-# Deep Learning Framework (pilih salah satu)
+# Deep Learning Framework
 tensorflow_cpu==2.20.0 
 
 **Additional Libraries:**
-- ucimlrepo – digunakan untuk mengunduh dataset dari UCI Machine Learning Repository secara langsung
-
-```
+ucimlrepo – digunakan untuk mengunduh dataset dari UCI Machine Learning Repository secara langsung
