@@ -6,13 +6,14 @@ Perbandingan Model Machine Learning dan Deep Learning dalam Klasifikasi Varietas
 **Nama Mahasiswa:** Hanifah Alya Nuraini  
 **NIM:** 233307015  
 **Program Studi:** Teknologi Informasi
+
 **Mata Kuliah:** Data Science  
 **Dosen Pengampu:** Gus Nanang Syaifuddiin, S.Kom., M.Kom.  
 **Tahun Akademik:** 2025 / 5
 
 **Link GitHub Repository:** (https://github.com/selena2355/Data-Science.git)
 
-**Link Video Pembahasan:** [URL Repository]
+**Link Video Pembahasan:** (https://drive.google.com/file/d/11KWGX1fWBSFRRFf5uEHPUK9MgWYZQwCr/view?usp=sharing)
 
 ---
 
@@ -100,6 +101,7 @@ Model MLP yang digunakan terdiri dari:
 - Dua hidden layer dengan aktivasi ReLU
 - Dropout layer untuk mengurangi overfitting
 - Output layer dengan aktivasi sigmoid untuk klasifikasi biner
+
 Model deep learning ini dilatih selama 30 epoch dan dievaluasi menggunakan data uji. selain itu, dilakukan visualisasi training berupa grafik loss dan accuracy untuk menganalisis proses pembelajaran model.
 
 ---
@@ -691,6 +693,7 @@ Saran pengembangan untuk proyek selanjutnya:
 - [ ] Menambah variasi data
 
 ✅ Feature engineering lebih lanjut
+
 Penambahan feature engineering, seperti rasio antar fitur geometris atau seleksi fitur berbasis importance, berpotensi meningkatkan performa model tanpa menambah kompleksitas data secara signifikan.
 
 **Model:**
@@ -712,6 +715,7 @@ Hasil eksperimen menunjukkan bahwa Random Forest memberikan performa terbaik, se
 
 - [ ] Containerization dengan Docker
 - [ ] Deploy ke cloud (Heroku, GCP, AWS)
+
 Model yang telah dilatih dapat dikembangkan menjadi layanan API atau aplikasi web sederhana agar dapat digunakan secara langsung oleh pengguna non-teknis.
 
 **Optimization:**
@@ -744,7 +748,6 @@ Optimasi inference dan ukuran model penting untuk meningkatkan efisiensi sistem,
 **Python Version:** 3.12.5
 
 **Main Libraries & Versions:**
-```
 numpy==2.3.5  
 pandas==2.3.3  
 scikit-learn==1.8.0  
@@ -752,11 +755,9 @@ matplotlib==3.10.8
 seaborn==0.13.2  
 joblib==1.5.2  
 
-# Deep Learning Framework (pilih salah satu)
+**Deep Learning Framework**
 tensorflow_cpu==2.20.0 
 
 **Additional Libraries:**
 
 ucimlrepo – digunakan untuk mengunduh dataset dari UCI Machine Learning Repository secara langsung
-
-```
