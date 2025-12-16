@@ -13,7 +13,7 @@
 
 ✅ Ada link GitHub yang dapat diakses
 
-- [ ] Ada link video penjelasan proyek
+✅ Ada link video penjelasan proyek
 
 ### **GitHub Repository:**
 

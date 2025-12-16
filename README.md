@@ -5,7 +5,7 @@ Perbandingan Model Machine Learning dan Deep Learning dalam Klasifikasi Varietas
 ## 👤 Informasi
 - **Nama:** Hanifah Alya Nuraini
 - **Repo:** (https://github.com/selena2355/Data-Science.git)  
-- **Video:** [...]  
+- **Video:** (https://drive.google.com/file/d/11KWGX1fWBSFRRFf5uEHPUK9MgWYZQwCr/view?usp=sharing)  
 
 ---
 
@@ -165,9 +165,9 @@ matplotlib==3.10.8
 seaborn==0.13.2  
 joblib==1.5.2  
 
-# Deep Learning Framework (pilih salah satu)
+**Deep Learning Framework**
 tensorflow_cpu==2.20.0 
 
 **Additional Libraries:**
 
-ucimlrepo – digunakan untuk mengunduh dataset dari UCI Machine Learning Repository secara langsung
+ucimlrepo
